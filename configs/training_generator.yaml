@@ -1,0 +1,83 @@
+# Model name -> Dataset name -> Training parameters
+# Our surrogate model for black-box attacks
+blackbox:
+  fcn:
+    iAWE:
+      generator_epochs: 40
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+
+  resnet:
+    iAWE:
+      generator_epochs: 40
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+
+  lstm:
+    iAWE:
+      generator_epochs: 40
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+
+  transformer:
+    iAWE:
+      generator_epochs: 40
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+
+whitebox:
+  fcn:
+    iAWE:
+      generator_epochs: 50
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+
+  resnet: 
+    iAWE:
+      generator_epochs: 50
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+
+  lstm:
+    iAWE:
+      generator_epochs: 50
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+
+  transformer:
+    iAWE:
+      generator_epochs: 50
+      batch_size: 128
+      learning_rate: 0.001
+    MotionSense:
+      generator_epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
