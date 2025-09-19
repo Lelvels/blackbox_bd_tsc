@@ -15,7 +15,7 @@ EXP_NO=0
 TARGET_CLASS=4
 AMPLITUDE=0.45
 
-# Maximum number of queries for the attack
+# Settings for iAWE dataset
 DATASET=iAWE
 FT_BUDGET=5000
 INJECT_BUDGET=7500
@@ -24,7 +24,7 @@ SP_DATA_RATIO=1.0
 GEN_TRAIN_DATA_RATIO=0.3
 AMPLITUDE_REG_WEIGHT=1e-3
 
-# MotionSense dataset parameters
+# Settings for MotionSense dataset
 # DATASET=MotionSense
 # FT_BUDGET=400
 # INJECT_BUDGET=800
@@ -33,7 +33,7 @@ AMPLITUDE_REG_WEIGHT=1e-3
 # GEN_TRAIN_DATA_RATIO=0.3
 # AMPLITUDE_REG_WEIGHT=1e-3
 
-# Attack epochs
+# Attack settings
 MAIN_EPOCHS=50
 ATK_EPOCHS=2
 
@@ -65,4 +65,4 @@ python black_box_attacks.py --dataset_name ${DATASET} \
                             --amplitude_reg_weight ${AMPLITUDE_REG_WEIGHT} \
                             --gpu ${CUDA_VISIBLE_DEVICES} \
                             --resume \
-                            # --backdoor_training #Uncomment this line for our method, comment this line for the baseline
+                            --backdoor_training # Boolean flag for backdoor training, comment this line if you want to blackbox adversarial attack.

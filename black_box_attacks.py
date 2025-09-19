@@ -598,10 +598,10 @@ if __name__ == "__main__":
                 x_collected, y_collected, test_size=0.1, random_state=main_epoch + SEED
             )
             # Concatenate the collected data with the training set
-            x_update_target_train = np.concatenate((x_train_atk.copy(), x_collected_train), axis=0)
-            y_update_target_train = np.concatenate((y_train_atk.copy(), y_collected_train), axis=0)
-            x_update_target_test = np.concatenate((x_test_atk.copy(), x_collected_test), axis=0)
-            y_update_target_test = np.concatenate((y_test_atk.copy(), y_collected_test), axis=0)
+            x_update_target_train = np.concatenate((x_train_sp.copy(), x_collected_train), axis=0)
+            y_update_target_train = np.concatenate((y_train_sp.copy(), y_collected_train), axis=0)
+            x_update_target_test = np.concatenate((x_test_sp.copy(), x_collected_test), axis=0)
+            y_update_target_test = np.concatenate((y_test_sp.copy(), y_collected_test), axis=0)
 
             # Set the output directory for the target model update
             target_model_wrapper.output_directory = os.path.join(epoch_out_dir, f'target_model_update')
