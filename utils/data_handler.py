@@ -75,7 +75,7 @@ def get_tsc_train_dataset(dataset_name, data_type, data_ratio=1.0):
     Returns:
         Tuple containing x_train, y_train, x_test, y_test
     """
-    data_root_dir = "/home/fmg2/v-thanh/Code/datasets"
+    data_root_dir = "<path_to_dataset>"
     if dataset_name not in ["iAWE", "MotionSense", "VNDALE"]:
         raise ValueError("dataset_name must be either 'iAWE', 'MotionSense' or 'VNDALE'")
 

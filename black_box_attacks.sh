@@ -1,10 +1,4 @@
 #!/bin/sh
-#SBATCH --job-name="adv_t4_res_res"
-#SBATCH --out="/home/fmg2/v-thanh/Code/results/TSBA/logs/adv_t4_res_res.log"
-#SBATCH --time=48:00:00
-#SBATCH --cpus-per-task=12
-#SBATCH --gres=gpu:tesla_a100_80g:1
-# tesla_a100_80g / tesla_a6000ada_50g and tesla_a100
 
 # Surrogate and target classifiers with resnet as default surrogate classifier
 SURROGATE_CLF=resnet
@@ -38,9 +32,9 @@ MAIN_EPOCHS=50
 ATK_EPOCHS=2
 
 # Generate dynamic job name and output path
-source /home/fmg2/v-thanh/miniconda3/etc/profile.d/conda.sh
+source /miniconda3/etc/profile.d/conda.sh
 conda activate my_env
-cd /home/fmg2/v-thanh/Code/source/Time_Series_Backdoor_Attack
+cd <code_path>/Time_Series_Backdoor_Attack
 
 # Target class and experiment number
 export TF_FORCE_GPU_ALLOW_GROWTH=1

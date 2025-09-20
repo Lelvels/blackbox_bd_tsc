@@ -1,9 +1,4 @@
 #!/bin/sh
-#SBATCH --job-name="cb4_ia2_res_fcn"
-#SBATCH --out="/home/fmg2/v-thanh/Code/results/TSBA/logs/cb4_ia2_res_fcn.log"
-#SBATCH --time=48:00:00
-#SBATCH --cpus-per-task=16
-#SBATCH --gres=gpu:tesla_a100_80G:1
 
 # Parameters for continuous backdoor attack
 EXP_NO=4
@@ -41,7 +36,7 @@ AMPLITUDE_REG_WEIGHT=2e-3
 EPOCHS=50
 ATK_EPOCHS=2
 GEN_NAME="dynamic_ampl_cnn"
-RESULT_DIR="/home/fmg2/v-thanh/Code/results/TSBA"
+RESULT_DIR="<path_to_results>"
 TARGET_CLF_DIR="${RESULT_DIR}/${DATASET}/with_bd/bb_${SURRO_CLF}_exp_${ORI_EXP_NO}-t_${TARGET_CLASS}-clf_${TARGET_CLF}/epoch_${BACKDOOR_EPOCH}/target_model_update/best_model.keras"
 SURRO_CLF_DIR="${RESULT_DIR}/${DATASET}/with_bd/bb_${SURRO_CLF}_exp_${ORI_EXP_NO}-t_${TARGET_CLASS}-clf_${TARGET_CLF}/epoch_${BACKDOOR_EPOCH}/surrogate_model_update/best_model.keras"
 GEN_DIR="${RESULT_DIR}/${DATASET}/with_bd/bb_${SURRO_CLF}_exp_${ORI_EXP_NO}-t_${TARGET_CLASS}-clf_${TARGET_CLF}/epoch_${GEN_EPOCH}/generator_epoch_${GEN_ATK_EPOCH}/best_generator.keras"
@@ -63,9 +58,9 @@ if [ ! -f "$GEN_DIR" ]; then
 fi
 
 # Generate dynamic job name and output path
-source /home/fmg2/v-thanh/miniconda3/etc/profile.d/conda.sh
+source <path_to_conda>/conda.sh
 conda activate my_env
-cd /home/fmg2/v-thanh/Code/source/Time_Series_Backdoor_Attack
+cd <path_to_conda>/Time_Series_Backdoor_Attack
 
 # Target class and experiment number
 export TF_FORCE_GPU_ALLOW_GROWTH=1
