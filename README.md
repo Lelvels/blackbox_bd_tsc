@@ -42,24 +42,23 @@ seaborn
 
 # 📊 Data & Model Weights
 
-You can download the necessary datasets and pre-trained model weights from the links below.
+You can download the necessary datasets and pre-trained model weights from the links below, ``sp``: Refers to the Service Provider's data, ``atk``: Refers to the Attacker's data. Please contact us through this google form for the password: https://forms.gle/fRDQQ34SPQ2dAp8Z8. 
 
-- ``sp``: Refers to the Service Provider's data.
-- ``atk``: Refers to the Attacker's data.
-- The model weights can be download here:
-
-  - iAWE blackbox backdoor attacks: [Link].
-  - MotionSense blackbox backdoor attacks: [Link].
-  - iAWE pretrained models: [Link].
-  - MotionSense pretrained models: [Link].
-- For the original time-series datasets, please refer to:
-
+For the original time-series datasets, please refer to:
   - iAWE: https://iawe.github.io/
   - MotionSense: https://github.com/mmalekzadeh/motion-sense
-- Our preprocessed training & test data can be download here (Numpy format):
 
-  - iAWE train/test dataset: [Link].
-  - MotionSense train/test dataset: [Link].
+- Our preprocessed training & test data can be download here (Numpy format):
+  - iAWE train/test dataset: [dataset](https://tngnemo-my.sharepoint.com/:u:/g/personal/levels1912_tngnemo_onmicrosoft_com/EVmT9-YHRHhChJxX4izF3hcB4n72DMPABAKbSI7DWX-Q9Q?e=yXacW9).
+  - MotionSense train/test dataset: [dataset](https://tngnemo-my.sharepoint.com/:u:/g/personal/levels1912_tngnemo_onmicrosoft_com/EeslKSYLfWBHvLa6lLbFS9cB3KKqqXpfMA1YuWlGOUK4Og?e=dF0heC).
+
+Pre-trained model weights can be download here:
+- iAWE pretrained models: [iAWE pretrained models](https://tngnemo-my.sharepoint.com/:u:/g/personal/levels1912_tngnemo_onmicrosoft_com/EQi0fD0MXLdDsGsagxMQibwBHlKa25dp6XPINiCmK3Zo3Q?e=zdCRXq).
+- MotionSense pretrained models: [MotionSense pretrained models](https://tngnemo-my.sharepoint.com/:u:/g/personal/levels1912_tngnemo_onmicrosoft_com/EUe7Oek1ZHRNr9xUfUbv3BsBAhrqwKNjyQPTByWp32zA6g?e=XvAAq2).
+
+The model weights for the blackbox backdoor attacks can be download here:
+- iAWE blackbox backdoor attacks: [pretrained models](https://tngnemo-my.sharepoint.com/:u:/g/personal/levels1912_tngnemo_onmicrosoft_com/EeJo2SQ7YVdGj5ZzPTeTqKYBqYYFFpqymcQImOMDoVy4_g?e=0VZ8Us).
+- MotionSense blackbox backdoor attacks: [pretrained models](https://tngnemo-my.sharepoint.com/:u:/g/personal/levels1912_tngnemo_onmicrosoft_com/EWDSSiEBCvxKigYu2UWACq4BzOvlXnyIBcF1NLuuNEYzyQ?e=Y15tfb).
 
 # 🚀 Running the Experiments
 
@@ -127,7 +126,8 @@ sh continuous_bd.sh
 # Contact authors
 
 - **Thanh Cong Nguyen**: thanhcong1.work@gmail.com
-- **Hanrui Wang** (Corresponding author): hanrui_wang@nii.ac.jp
+- **Dr. Hanrui Wang** (Corresponding author): hanrui_wang@nii.ac.jp
+- **Prof. Isao Echizen** (Corresponding author): echizen@nii.ac.jp
 - This works is conducted under the NII International Internship Program, in National Institute of Informatics, Tokyo, Japan.
 
 # Acknowledgements
