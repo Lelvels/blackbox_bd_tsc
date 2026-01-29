@@ -92,6 +92,7 @@ sh scripts/black_box_attacks.sh.
 
 - First, please download the data and models weights from the links above.
 - Then, for black-box backdoor attack evaluations on the full dataset, please go to `notebook/run_attacks.ipynb`.
+- Script `scripts/black_box_attacks.sh` is for black-box backdoor attack evaluations on the full dataset.
 
 ## 4. Gray-box injection attack
 
@@ -101,11 +102,17 @@ sh scripts/black_box_attacks.sh.
 sh scripts/gray_box_attacks.sh
 ```
 
-## 4. Update efficiency
+## 5. White-box backdoor attack (TSBA)
+
+- The script `scripts/white_box_attacks.sh` is for white-box backdoor attack evaluations on the full dataset.
+- We thank you Jiang et al. for sharing their code: "https://github.com/yujingmarkjiang/Time_Series_Backdoor_Attack".
+
+## 6. Update efficiency
 
 - This experiment evaluates the persistence and efficiency of the backdoor over multiple updates. It requires a pre-trained trigger generator and a backdoored target model from Step 2.
 - iAWE: Assumes the target model is `FCN` and the target class is `computer` (label 2).
 - MotionSense: Assumes the target model is `Transformer` and the target class is `sit` (label 2).
+- Visualization for this process is available in `notebook/continuous_backdoor_visualization.ipynb`.
 
 To run the experiment, use the following script:
 
@@ -115,16 +122,15 @@ sh scripts/continuous_bd.sh
 
 # ⚙️ Hyperparameters and setups
 
-- The optimal hyperparameters vary depending on the target model and dataset. For full transparency and reproducibility, a comprehensive list of all settings used in our experiments is available in the following Google Sheet: ➡️ [Google Sheet](https://docs.google.com/spreadsheets/d/1rab4JrnUre5lL9s6hdRscOIStbhpGMOjvgPmyhnJCPs/edit?usp=sharing).
 - A summary of the most critical hyperparameters is provided below:
-
+xs
 | **Parameter**                        |   **iAWE**   | **MotionSense** |
 | :----------------------------------- | :----------: | :-------------: |
 | Query Budget ($\beta_{init}$)        |     2000     |       400       |
 | Injection Budget ($\beta_{inject}$)  |     4000     |       800       |
 | Maximum Target Model Update Times    |      50      |       50        |
 | Attacker's step ($\kappa$)           |      2       |        2        |
-| Maximum Amplitude Ratio ($\epsilon$) | `[0.1, 0.6]` |  `[0.1, 0.6]`   |
+| Maximum Amplitude Ratio ($\epsilon$) | `[0.3, 0.5]` |  `[0.3, 0.5]`   |
 | Generator Training epoch             |      40      |       50        |
 | Generator Learning rate              |   1.00e-03   |    1.00e-03     |
 | TSC Update Training Epochs           |      10      |       100       |
