@@ -123,7 +123,7 @@ sh scripts/continuous_bd.sh
 # ⚙️ Hyperparameters and setups
 
 - A summary of the most critical hyperparameters is provided below:
-xs
+
 | **Parameter**                        |   **iAWE**   | **MotionSense** |
 | :----------------------------------- | :----------: | :-------------: |
 | Query Budget ($\beta_{init}$)        |     2000     |       400       |
