@@ -1,5 +1,7 @@
 # Black-box Backdoor Attack on Continual Semi-Supervised Learning time-series-based IoT System
 
+**Note: We anonymized all download links to comply with the double-blind policy. We will release the data and model weights once accepted.**
+
 This repository contains the official implementation for the paper: "Black-box Backdoor Attack on Continual Semi-Supervised Learning time-series-based IoT System".
 
 We propose a novel black-box backdoor attack for CSSL-based time-series classification that is gradient-free, annotation-free, and update-efficient. Our attack pipeline consists of three main stages:
