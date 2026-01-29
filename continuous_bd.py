@@ -202,25 +202,21 @@ if __name__ == "__main__":
     nb_classes = enc.categories_[0].shape[0]
     logger.info(f"[Attacker Dataset] Data preprocessed. Training samples: {len(x_train_atk)}, Test samples: {len(x_test_atk)}")
 
-    if dataset_name != "iAWE":
-        # Get sp dataset
-        x_train_sp, y_train_sp, x_test_sp, y_test_sp = get_tsc_train_dataset(
-            dataset_name=dataset_name,
-            data_ratio=sp_data_ratio,
-            data_type='sp'
-        )
+    # Get sp dataset
+    x_train_sp, y_train_sp, x_test_sp, y_test_sp = get_tsc_train_dataset(
+        dataset_name=dataset_name,
+        data_ratio=sp_data_ratio,
+        data_type='sp'
+    )
 
-        # Preprocess sp data
-        x_train_sp, y_train_sp, x_test_sp, y_test_sp, _ = preprocess_data(
-            x_train=x_train_sp,
-            y_train=y_train_sp,
-            x_test=x_test_sp,
-            y_test=y_test_sp,
-        )
-        logger.info(f"[Service Provider Dataset] dataset loaded. Training samples: {len(x_train_sp)}, Test samples: {len(x_test_sp)}")
-    else:
-        # For iAWE, we use the same data for both attacker and service provider
-        x_train_sp, y_train_sp, x_test_sp, y_test_sp = x_train_atk, y_train_atk, x_test_atk, y_test_atk
+    # Preprocess sp data
+    x_train_sp, y_train_sp, x_test_sp, y_test_sp, _ = preprocess_data(
+        x_train=x_train_sp,
+        y_train=y_train_sp,
+        x_test=x_test_sp,
+        y_test=y_test_sp,
+    )
+    logger.info(f"[Service Provider Dataset] dataset loaded. Training samples: {len(x_train_sp)}, Test samples: {len(x_test_sp)}")
 
     # Load the target classifier
     target_model_wrapper = ClassifierWrapper(

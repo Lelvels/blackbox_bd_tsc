@@ -258,57 +258,22 @@ if __name__ == "__main__":
     if not os.path.exists(used_data_folder):
         os.makedirs(used_data_folder)
 
-    # Load datasets
-    if not resume or start_main_epoch == 1:
-        x_train_atk, y_train_atk, x_test_atk, y_test_atk = get_tsc_train_dataset(
+    x_train_atk, y_train_atk, x_test_atk, y_test_atk = get_tsc_train_dataset(
             dataset_name=dataset_name,
             data_ratio=atk_data_ratio,
             data_type="atk"
         )
 
-        # Preprocess the attacker data
-        x_train_atk, y_train_atk, x_test_atk, y_test_atk, enc = preprocess_data(x_train_atk, y_train_atk, x_test_atk, y_test_atk)
-        joblib.dump(enc, os.path.join(used_data_folder, "encoder.joblib"))
+    # Preprocess the attacker data
+    x_train_atk, y_train_atk, x_test_atk, y_test_atk, enc = preprocess_data(x_train_atk, y_train_atk, x_test_atk, y_test_atk)
 
-        if dataset_name != "iAWE":
-            # Load the Service Provider dataset
-            x_train_sp, y_train_sp, x_test_sp, y_test_sp = get_tsc_train_dataset(
-                dataset_name=dataset_name,
-                data_ratio=sp_data_ratio,
-                data_type="sp"
-            )
-            x_train_sp, y_train_sp, x_test_sp, y_test_sp, _ = preprocess_data(x_train_sp, y_train_sp, x_test_sp, y_test_sp)
-        else:
-            # For iAWE, we use the same data for both attacker and service provider
-            x_train_sp, y_train_sp, x_test_sp, y_test_sp = x_train_atk, y_train_atk, x_test_atk, y_test_atk
-
-        # Save the datasets        
-        np.save(os.path.join(used_data_folder, "x_train_atk.npy"), x_train_atk)
-        np.save(os.path.join(used_data_folder, "y_train_atk.npy"), y_train_atk)
-        np.save(os.path.join(used_data_folder, "x_test_atk.npy"), x_test_atk)
-        np.save(os.path.join(used_data_folder, "y_test_atk.npy"), y_test_atk)
-
-        # Save the service provider data
-        np.save(os.path.join(used_data_folder, "x_train_sp.npy"), x_train_sp)
-        np.save(os.path.join(used_data_folder, "y_train_sp.npy"), y_train_sp)
-        np.save(os.path.join(used_data_folder, "x_test_sp.npy"), x_test_sp)
-        np.save(os.path.join(used_data_folder, "y_test_sp.npy"), y_test_sp)
-    else:
-        # Load the attacker data
-        x_train_atk = np.load(os.path.join(used_data_folder, "x_train_atk.npy"))
-        y_train_atk = np.load(os.path.join(used_data_folder, "y_train_atk.npy"))
-        x_test_atk = np.load(os.path.join(used_data_folder, "x_test_atk.npy"))
-        y_test_atk = np.load(os.path.join(used_data_folder, "y_test_atk.npy"))
-
-        # Load the service provider data
-        x_train_sp = np.load(os.path.join(used_data_folder, "x_train_sp.npy"))
-        y_train_sp = np.load(os.path.join(used_data_folder, "y_train_sp.npy"))
-        x_test_sp = np.load(os.path.join(used_data_folder, "x_test_sp.npy"))
-        y_test_sp = np.load(os.path.join(used_data_folder, "y_test_sp.npy"))
-
-        # Load the encoder
-        enc = joblib.load(os.path.join(used_data_folder, "encoder.joblib"))
-
+    # Load the Service Provider dataset
+    x_train_sp, y_train_sp, x_test_sp, y_test_sp = get_tsc_train_dataset(
+        dataset_name=dataset_name,
+        data_ratio=sp_data_ratio,
+        data_type="sp"
+    )
+    x_train_sp, y_train_sp, x_test_sp, y_test_sp, _ = preprocess_data(x_train_sp, y_train_sp, x_test_sp, y_test_sp)
 
     # Log dataset shapes and distributions
     atk_distribution = np.unique(np.argmax(y_train_atk, axis=1), return_counts=True)
